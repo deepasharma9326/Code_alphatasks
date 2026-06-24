@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Disease Prediction System</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="topbar">
+        <div>
+          <p class="eyebrow">UCI ML Repository Project</p>
+          <h1>Disease Prediction System</h1>
+        </div>
+        <div class="metric-strip" id="metricStrip"></div>
+      </section>
+
+      <section class="workspace">
+        <aside class="sidebar">
+          <button class="model-tab active" data-model="heart">
+            <span>Heart</span>
+            <small>Disease risk</small>
+          </button>
+          <button class="model-tab" data-model="diabetes">
+            <span>Diabetes</span>
+            <small>Glucose risk</small>
+          </button>
+          <button class="model-tab" data-model="breast_cancer">
+            <span>Breast Cancer</span>
+            <small>Diagnosis pattern</small>
+          </button>
+        </aside>
+
+        <section class="panel">
+          <div class="panel-heading">
+            <div>
+              <h2 id="modelTitle">Loading model</h2>
+              <p id="modelNote"></p>
+            </div>
+            <button id="fillDefaults" type="button">Fill sample values</button>
+          </div>
+
+          <form id="predictionForm" class="input-grid"></form>
+
+          <div class="actions">
+            <button class="primary" id="predictButton" type="submit" form="predictionForm">
+              Predict
+            </button>
+            <button id="resetButton" type="button">Reset</button>
+          </div>
+        </section>
+
+        <section class="result-panel" id="resultPanel">
+          <p class="eyebrow">Prediction</p>
+          <h2 id="resultLabel">Enter values</h2>
+          <div class="gauge">
+            <div id="gaugeFill"></div>
+          </div>
+          <p id="resultProbability">Probability will appear here.</p>
+          <p class="muted">
+            This is a machine learning demo for academic project work. It is not medical advice.
+          </p>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

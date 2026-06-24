@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Credit Scoring System</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">German Credit Dataset</p>
+          <h1>Credit Scoring System</h1>
+        </div>
+        <div class="model-card">
+          <label for="modelSelect">Model</label>
+          <select id="modelSelect"></select>
+        </div>
+      </header>
+
+      <section class="layout">
+        <form id="creditForm" class="form-panel"></form>
+
+        <aside class="result-panel">
+          <p class="eyebrow">Result</p>
+          <h2 id="riskLabel">Enter applicant details</h2>
+          <div class="meter"><span id="meterFill"></span></div>
+          <p id="probabilityText">Bad-credit probability will appear here.</p>
+          <div class="decision" id="decisionBox">
+            <strong>Decision support</strong>
+            <span>Use this prediction with manual review for real applications.</span>
+          </div>
+          <button class="primary" type="submit" form="creditForm">Predict Credit Risk</button>
+          <button id="resetButton" type="button">Reset Sample Values</button>
+        </aside>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

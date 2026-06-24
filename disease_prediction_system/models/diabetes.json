@@ -1,0 +1,71 @@
+{
+  "title": "Diabetes Glucose Risk Prediction",
+  "features": [
+    "avg_glucose",
+    "max_glucose",
+    "min_glucose",
+    "glucose_readings",
+    "regular_insulin",
+    "nph_insulin",
+    "ultralente_insulin",
+    "meal_events",
+    "exercise_events",
+    "hypoglycemic_symptoms"
+  ],
+  "weights": [
+    2.2070106616911565,
+    4.863328197387872,
+    -0.6516192153630311,
+    -0.012641834658864962,
+    0.021082718903303918,
+    0.016419134752951023,
+    0.20677260897632554,
+    0.00986139615492014,
+    0.11765376165540074,
+    0.20548338234923474
+  ],
+  "bias": 2.17392663082526,
+  "means": [
+    161.80312037379719,
+    224.78724093264248,
+    102.90641191709845,
+    3.5038860103626943,
+    16.070919689119172,
+    15.136981865284975,
+    4.308937823834197,
+    0.133419689119171,
+    0.08257772020725389,
+    0.08775906735751296
+  ],
+  "scales": [
+    55.63465441423034,
+    79.95496064027913,
+    55.77849289617054,
+    0.9151066233418282,
+    12.147130311387967,
+    19.069892554253137,
+    9.01178117288981,
+    0.4858859916873896,
+    0.3116595856498642,
+    0.31746307195497353
+  ],
+  "positive_label": "High glucose risk",
+  "negative_label": "Lower glucose risk",
+  "metrics": {
+    "accuracy": 0.9689,
+    "samples": 772
+  },
+  "defaults": {
+    "avg_glucose": 155.0,
+    "max_glucose": 218.0,
+    "min_glucose": 91.0,
+    "glucose_readings": 4.0,
+    "regular_insulin": 16.0,
+    "nph_insulin": 15.0,
+    "ultralente_insulin": 0,
+    "meal_events": 0,
+    "exercise_events": 0,
+    "hypoglycemic_symptoms": 0
+  },
+  "notes": "Trained from UCI Diabetes patient logs. This predicts high glucose risk, not diabetes diagnosis."
+}

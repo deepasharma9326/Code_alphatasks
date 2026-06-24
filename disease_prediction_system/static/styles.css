@@ -1,0 +1,288 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f7fb;
+  --ink: #16202a;
+  --muted: #657181;
+  --line: #dce3ec;
+  --panel: #ffffff;
+  --accent: #0f766e;
+  --accent-dark: #115e59;
+  --danger: #b42318;
+  --warn: #b45309;
+  --ok: #047857;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0;
+}
+
+.topbar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--accent-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.02;
+}
+
+h2 {
+  margin-bottom: 8px;
+  font-size: 1.35rem;
+}
+
+.metric-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.metric {
+  min-width: 132px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.metric strong {
+  display: block;
+}
+
+.metric small {
+  color: var(--muted);
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr) 300px;
+  gap: 16px;
+  align-items: start;
+}
+
+.sidebar,
+.panel,
+.result-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.sidebar {
+  display: grid;
+  gap: 6px;
+  padding: 8px;
+}
+
+.model-tab {
+  width: 100%;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 13px;
+  text-align: left;
+}
+
+.model-tab span {
+  display: block;
+  font-weight: 700;
+}
+
+.model-tab small {
+  color: var(--muted);
+}
+
+.model-tab.active {
+  background: #dff3ef;
+  color: var(--accent-dark);
+}
+
+.panel,
+.result-panel {
+  padding: 18px;
+}
+
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+}
+
+.panel-heading p {
+  color: var(--muted);
+  margin-bottom: 0;
+  line-height: 1.45;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(170px, 1fr));
+  gap: 12px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  padding: 10px 11px;
+}
+
+input:focus {
+  border-color: var(--accent);
+  outline: 3px solid #c8ebe5;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+button {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 10px 13px;
+  font-weight: 700;
+}
+
+button.primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+button:hover {
+  filter: brightness(0.98);
+}
+
+.result-panel {
+  position: sticky;
+  top: 16px;
+}
+
+#resultLabel {
+  min-height: 64px;
+  font-size: 1.8rem;
+  line-height: 1.08;
+}
+
+.gauge {
+  height: 14px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e7edf5;
+  margin: 18px 0 10px;
+}
+
+#gaugeFill {
+  width: 0%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+.muted,
+#resultProbability {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.risk #gaugeFill {
+  background: var(--danger);
+}
+
+.lower #gaugeFill {
+  background: var(--ok);
+}
+
+@media (max-width: 980px) {
+  .topbar,
+  .panel-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .metric-strip {
+    justify-content: flex-start;
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .result-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    width: min(100% - 20px, 1180px);
+    padding: 16px 0;
+  }
+
+  .sidebar,
+  .input-grid {
+    grid-template-columns: 1fr;
+  }
+}
